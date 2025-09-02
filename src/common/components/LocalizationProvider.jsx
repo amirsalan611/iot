@@ -123,30 +123,9 @@ const languages = {
   zh_TW: { data: zh_TW, country: 'TW', name: '中文 (Taiwan)' },
 };
 
-const getDefaultLanguage = () => {
-  const browserLanguages = window.navigator.languages ? window.navigator.languages.slice() : [];
-  const browserLanguage = window.navigator.userLanguage || window.navigator.language;
-  browserLanguages.push(browserLanguage);
-  browserLanguages.push(browserLanguage.substring(0, 2));
-
-  for (let i = 0; i < browserLanguages.length; i += 1) {
-    let language = browserLanguages[i].replace('-', '_');
-    if (language in languages) {
-      return language;
-    }
-    if (language.length > 2) {
-      language = language.substring(0, 2);
-      if (language in languages) {
-        return language;
-      }
-    }
-  }
-  return 'en';
-};
-
 const LocalizationContext = createContext({
   languages,
-  language: 'en',
+  language: 'fa',
   setLocalLanguage: () => {},
 });
 
@@ -158,7 +137,7 @@ export const LocalizationProvider = ({ children }) => {
     return (targetLanguage && targetLanguage in languages) ? targetLanguage : null;
   });
 
-  const [localLanguage, setLocalLanguage] = usePersistedState('language', getDefaultLanguage());
+  const [localLanguage, setLocalLanguage] = usePersistedState('language', 'fa');
 
   const language = remoteLanguage || localLanguage;
 
