@@ -31,7 +31,7 @@ const useStyles = makeStyles()((theme) => ({
     textAlign: "center",
   },
   form: {
-    padding: theme.spacing(4, 5, 0, 5),
+    padding: theme.spacing(5),
     borderRadius: "20px",
     width: "30%",
     background: "rgba(255, 255, 255, 0.1)",

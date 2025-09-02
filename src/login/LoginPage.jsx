@@ -300,39 +300,6 @@ const LoginPage = () => {
             </Button>
           </div>
         )}
-        {openIdEnabled && (
-          <Button
-            onClick={() => handleOpenIdLogin()}
-            variant="contained"
-            color="secondary"
-          >
-            {t("loginOpenId")}
-          </Button>
-        )}
-        {!openIdForced && (
-          <div className={classes.extraContainer}>
-            {registrationEnabled && (
-              <Link
-                onClick={() => navigate("/register")}
-                className={classes.link}
-                underline="none"
-                variant="caption"
-              >
-                {t("loginRegister")}
-              </Link>
-            )}
-            {emailEnabled && (
-              <Link
-                onClick={() => navigate("/reset-password")}
-                className={classes.link}
-                underline="none"
-                variant="caption"
-              >
-                {t("loginReset")}
-              </Link>
-            )}
-          </div>
-        )}
         <QrCodeDialog open={showQr} onClose={() => setShowQr(false)} />
         <Snackbar
           open={!!announcement && !announcementShown}
